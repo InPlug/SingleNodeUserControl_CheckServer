@@ -286,8 +286,8 @@ namespace SingleNodeUserControl_CheckServerDemo
             this._btnBreakTaskTreeRelayCommand = new RelayCommand(breakTaskTreeExecute, canBreakTaskTreeExecute);
             this._returnObject = new ComplexServerReturnObject()
             {
-           		Server = "Server",
-           		Timeout = 500,
+           		Server = "<Server>",
+                Timeout = 500,
            		Retries = 3,
                 SuccessfulRetry = 1
             };

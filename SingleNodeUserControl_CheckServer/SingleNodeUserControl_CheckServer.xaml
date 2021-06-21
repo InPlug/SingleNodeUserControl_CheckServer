@@ -45,10 +45,10 @@
                         <Grid.RowDefinitions>
                             <RowDefinition Height="Auto" />
                             <RowDefinition Height="Auto" />
-                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="1" />
                             <RowDefinition Height="Auto" />
                         </Grid.RowDefinitions>
-                        <Grid Grid.Row="0" Grid.Column="0" Margin="0,5,0,0">
+                        <Grid Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Margin="0,5,0,0">
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="Auto" />
                                 <ColumnDefinition Width="Auto" />
@@ -125,9 +125,8 @@
                         </Grid>
                         <!--TextBlock Name="ShortResultText" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3"
                                        Text="{Binding ShortResult, StringFormat=Ergebnis:&#x09;{0}}" Padding="5,0,5,5"/-->
-                        <Grid Grid.Row="2" Grid.Column="0" Margin="0,5,0,0" DataContext="{Binding Path=UserDataContext}">
+                        <Grid Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" Margin="0,5,0,0" DataContext="{Binding Path=UserDataContext}">
                             <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="Auto"/>
                                 <ColumnDefinition Width="Auto"/>
                                 <ColumnDefinition Width="*"/>
                             </Grid.ColumnDefinitions>
@@ -143,15 +142,19 @@
                             <TextBlock Text="Timeout:" Grid.Row="1" Grid.Column="0" HorizontalAlignment="Left" Padding="5,0,5,0" />
                             <TextBlock Name="ComplexResultComplexResultTimeout" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Right"
                                        Text="{Binding Timeout}" Padding="5,0,5,0"/>
-                            <TextBlock Text="Retries:" Grid.Row="2" Grid.Column="0" HorizontalAlignment="Left" Padding="5,0,5,0" />
-                            <TextBlock Name="ComplexResultComplexResultRetries" Grid.Row="2" Grid.Column="1" HorizontalAlignment="Right"
-                                       Text="{Binding Retries}" Padding="5,0,5,0"/>
-                            <TextBlock Text="Retries:" Grid.Row="3" Grid.Column="0" HorizontalAlignment="Left" Padding="5,0,5,0" />
-                            <TextBlock Name="ComplexResultComplexResultSuccessfulRetry" Grid.Row="3" Grid.Column="1" HorizontalAlignment="Right"
-                                       Text="{Binding SuccessfulRetry}" Padding="5,0,5,0"/>
+                            <TextBlock Text="Versuche max/akt:" Grid.Row="2" Grid.Column="0" HorizontalAlignment="Left" Padding="5,0,5,0" />
+                            <TextBlock Name="ComplexResultComplexResultRetries" Grid.Row="2" Grid.Column="1" HorizontalAlignment="Right" Padding="5,0,5,0">
+                                <TextBlock.Text>
+                                    <MultiBinding StringFormat="{}{0}/{1}">
+                                        <Binding Path="Retries" />
+                                        <Binding Path="SuccessfulRetry" />
+                                    </MultiBinding>
+                                </TextBlock.Text>
+                            </TextBlock>
                         </Grid>
-                        <TextBlock Name="LastRunInfo" Grid.Row="3" Grid.Column="0"
-                                       Text="{Binding LastRunInfo, StringFormat=letzter Lauf:&#x09;{0}}" Padding="5,0,5,5"/>
+                        <TextBlock Text="letzter Lauf:" Grid.Row="3" Grid.Column="0" HorizontalAlignment="Left" Padding="5,0,5,7" />
+                        <TextBlock Name="LastRunInfo" Grid.Row="3" Grid.Column="1" HorizontalAlignment="Right"
+                                       Text="{Binding LastRunInfo}" Padding="5,0,5,7"/>
                     </Grid>
                 </Border>
                 <DataTemplate.Triggers>
