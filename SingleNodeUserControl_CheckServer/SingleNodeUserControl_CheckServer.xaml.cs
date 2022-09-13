@@ -1,6 +1,7 @@
 ﻿using System.Windows;
-using Vishnu.Interchange;
 using UserNodeControls;
+using Vishnu.Interchange;
+using Vishnu.ViewModel;
 
 namespace SingleNodeUserControl_CheckServer
 {
@@ -15,26 +16,16 @@ namespace SingleNodeUserControl_CheckServer
         public SingleNodeUserControl_CheckServer()
         {
             InitializeComponent();
-            DynamicUserControl_ContentRendered
-              += new RoutedEventHandler(content_Rendered);
         }
 
         /// <summary>
-        /// Übernimmt den aktuellen, spezifischen DataContext für Vishnu als IVishnuViewModel.
+        /// Konkrete Überschreibung von GetUserResultViewModel, returnt ein spezifisches ResultViewModel.
         /// </summary>
-        public ResultViewModel UserResultViewModel { get; set; }
-
-        private void ContentControl_Loaded(object sender, RoutedEventArgs e)
+        /// <param name="vishnuViewModel">Ein spezifisches ResultViewModel.</param>
+        /// <returns></returns>
+        protected override DynamicUserControlViewModelBase GetUserResultViewModel(IVishnuViewModel vishnuViewModel)
         {
-            if (this.DataContext != null)
-            {
-                this.UserResultViewModel = new ResultViewModel((IVishnuViewModel)this.DataContext);
-                ((IVishnuViewModel)this.DataContext).UserDataContext = this.UserResultViewModel;
-            }
-        }
-
-        private void content_Rendered(object sender, RoutedEventArgs e)
-        {
+            return new ResultViewModel((IVishnuViewModel)this.DataContext);
         }
 
         private delegate void NoArgDelegate();
