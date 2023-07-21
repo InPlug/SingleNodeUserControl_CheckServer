@@ -19,7 +19,7 @@ namespace UserNodeControls
         /// <summary>
         /// Name des Servers, der angepingt werden soll.
         /// </summary>
-        public string Server
+        public string? Server
         {
             get
             {
@@ -73,7 +73,7 @@ namespace UserNodeControls
             }
         }
 
-        void parentViewModel_PropertyChanged(object sender, System.ComponentModel.PropertyChangedEventArgs e)
+        void parentViewModel_PropertyChanged(object? sender, System.ComponentModel.PropertyChangedEventArgs e)
         {
             if (e.PropertyName == "Result")
             {

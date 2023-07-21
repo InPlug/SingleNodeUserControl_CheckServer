@@ -6,7 +6,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:base="clr-namespace:Vishnu.Interchange;assembly=Vishnu.Interchange"
              xmlns:checkServerDll="clr-namespace:CheckServer;assembly=CheckServer"
-             xmlns:ctrl="clr-namespace:NetEti.CustomControls;assembly=CustomProgressBar"
+             xmlns:ctrl="clr-namespace:NetEti.CustomControls;assembly=NetEti.CustomProgressBar"
              xmlns:convert="clr-namespace:Vishnu.WPF_UI.ValueConverter;assembly=Vishnu.WPF_UI"
              xmlns:vm="clr-namespace:Vishnu.ViewModel;assembly=Vishnu.ViewModel"
              xmlns:attached="clr-namespace:Vishnu.WPF_UI.DependencyProperties;assembly=Vishnu.WPF_UI"

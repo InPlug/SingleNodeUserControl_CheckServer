@@ -15,7 +15,7 @@ namespace SingleNodeUserControl_CheckServerDemo
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            (this.DataContext as SingleNodeViewModel).RaiseAllProperties();
+            ((SingleNodeViewModel)this.DataContext).RaiseAllProperties();
         }
     }
 }

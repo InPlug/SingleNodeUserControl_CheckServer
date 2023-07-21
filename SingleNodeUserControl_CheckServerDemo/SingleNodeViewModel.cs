@@ -23,7 +23,7 @@ namespace SingleNodeUserControl_CheckServerDemo
         /// Der Name des zugehörigen LogicalTaskTree-Knotens
         /// für die UI verfügbar gemacht.
         /// </summary>
-        public string Name
+        public string? Name
         {
             get
             {
@@ -125,7 +125,7 @@ namespace SingleNodeUserControl_CheckServerDemo
         /// Ein Text für die Anzahl der beendeten Endknoten dieses Teilbaums
         /// zur Anzeige im ProgressBar (i.d.R. nnn%) für die UI verfügbar gemacht.
         /// </summary>
-        public string ProgressText
+        public string? ProgressText
         {
             get
             {
@@ -165,7 +165,7 @@ namespace SingleNodeUserControl_CheckServerDemo
         /// <summary>
         /// Das ReturnObject der zugeordneten LogicalNode.
         /// </summary>
-        public override Result Result
+        public override Result? Result
         {
             get
             {
@@ -311,21 +311,21 @@ namespace SingleNodeUserControl_CheckServerDemo
             this.RaisePropertyChanged("ButtonBreakText");
         }
 
-        private Vishnu.Interchange.Result _result;
+        private Vishnu.Interchange.Result? _result;
         private ComplexServerReturnObject _returnObject;
         private bool? _logical;
         private bool? _lastNotNullLogical;
         private VisualNodeState _visualState;
-        private string _progressText;
+        private string? _progressText;
         private int _singleNodesFinished;
-        private string _name;
+        private string? _name;
         private VisualNodeWorkerState _workersState;
         private RelayCommand _btnRunTaskTreeRelayCommand;
         private RelayCommand _btnBreakTaskTreeRelayCommand;
         private DateTime _lastRun;
         private bool _isSnapshotDummy;
 
-        private void runTaskTreeExecute(object parameter)
+        private void runTaskTreeExecute(object? parameter)
         {
             this._lastRun = DateTime.Now;
             this.Logical = true;
@@ -342,7 +342,7 @@ namespace SingleNodeUserControl_CheckServerDemo
             return true;
         }
 
-        private void breakTaskTreeExecute(object parameter)
+        private void breakTaskTreeExecute(object? parameter)
         {
             this.Logical = null;
             this.LastNotNullLogical = null;
