@@ -198,7 +198,7 @@ namespace SingleNodeUserControl_CheckServerDemo
         }
 
         /// <summary>
-        /// Kombinierte Ausgabe von NextRunInfo (wann ist der nächsta Durchlauf)
+        /// Kombinierte Ausgabe von NextRunInfo (wann ist der nächste Durchlauf)
         /// und Result (in voller Länge).
         /// </summary>
         public string NextRunInfoAndResult
